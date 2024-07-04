@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <div class="box">
     <h1>Weather Condition </h1>
     <form action="/weather" method="get">
         <input type="text" name="city" placeholder="Enter your city" required>
@@ -25,6 +26,7 @@
     <% } else  { %>
         <p><%= error %></p>
     <% }; %>
+    </div>
 </body>
 
 </html>
