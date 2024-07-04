@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Weather Condition </h1>
+    <form action="/weather" method="get">
+        <input type="text" name="city" placeholder="Enter your city" required>
+        <button type="submit">Get Weather</button>
+    </form>
+    <% if (locals.main && locals.description && locals.temp && locals.icon && locals.feelsLike) { %>
+        <h2>Current Weather at <%= city %></h2>
+        <h3>Weather : <%= main %> : <%= description %></h3>
+        <p> <img src="http://openweathermap.org/img/wn/<%= icon %>.png" alt="Weather icon"></p>
+        <p>Current Temperature  : <%=temp %> celsius. </p>
+        <p>Feels Like :<%= feelsLike %> celsius</p>
+        <p>Humidity : <%= humidity %>%</p>
+        <p>Wind Speed: <%= wind %> metre per sec</p>
+        <p>Atmospheric Pressure at Sea Level: <%= sea %>hPa</p>
+        <p>Atmospheric Pressure at Ground Level: <%= ground %>hPa</p>
+    <% } else  { %>
+        <p><%= error %></p>
+    <% }; %>
+</body>
+
+</html>
