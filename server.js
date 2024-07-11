@@ -1,14 +1,18 @@
 import express from 'express';
 import axios from 'axios';
 import bodyParser from 'body-parser';
+import dotenv from "dotenv";
+
 
 const app= express();
 const port= 3000;
 
+dotenv.config();
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
-const appkey = "919109d50f6d6152cffc93b772634265";
+const appkey = process.env.API_key;
 
 app.get("/", (req,res)=>{
     res.render("index.ejs",{error: null , city: null , main: null, description:null,
